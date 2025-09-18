@@ -5,7 +5,7 @@ const Home = () => {
     document.title = `Estás invitado! ${localStorage.getItem('guestName')}`;
     return(
         <>
-        <InvitationCard guestName={localStorage.getItem('guestName')} invitationMessage={"Prueba de mensaje"} table={localStorage.getItem('table')} />
+        <InvitationCard guestName={localStorage.getItem('guestName')} invitationMessage={"no c que poner"} table={localStorage.getItem('table')} />
         </>
     )
 }
