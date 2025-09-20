@@ -7,32 +7,34 @@ const SearchGuest = () => {
   const navigate = useNavigate();
   const [fullName, setFullName] = useState("");
   const { data, loading, error, request } = useApi("/services/guests.json");
+    const normalizeText = (text) => {
+  return text
+    .toLowerCase()
+    .normalize("NFD") 
+    .replace(/[\u0300-\u036f]/g, ""); 
+};
+ const searchName = async () => {
+  if (!fullName.trim()) {
+    alert("Por favor ingresa un nombre válido");
+    return;
+  }
 
-  const searchName = async () => {
-    if (!fullName.trim()) {
-      alert("Por favor ingresa un nombre válido");
-      return;
-    }
-    const users = await request("");
-    const guest = users ? users.guests : [];
-    if (!users)
-      return alert(
-        "No se pudo cargar la lista de invitados, intentalo mas tarde"
-      );
-    const user = guest.find(
-      (user) =>
-        user.nombre.toLowerCase().trim() === fullName.toLowerCase().trim()
-    );
-    if (user) {
-      localStorage.setItem("guestName", user.nombre);
-      localStorage.setItem("table", user.mesa);
-      navigate("/inicio");
-      return;
-    }
-    return alert(
-      "No se encontró el nombre, puede ser que lo hayas escrito mal!"
-    );
-  };
+  const users = await request("");
+  const guest = users ? users.guests : [];
+  if (!users) return alert("No se pudo cargar la lista de invitados, intentalo más tarde");
+
+  const user = guest.find(
+    (user) => normalizeText(user.nombre) === normalizeText(fullName)
+  );
+
+  if (user) {
+    localStorage.setItem("guestName", user.nombre);
+    localStorage.setItem("table", user.mesa);
+    navigate("/inicio");
+    return;
+  }
+  return alert("No se encontró el nombre, puede ser que lo hayas escrito mal!");
+};
 
   return (
     <div className="search-container">
