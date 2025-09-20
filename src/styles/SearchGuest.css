@@ -1,0 +1,78 @@
+/* Contenedor general */
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 400px;
+  background: #fdfaf6;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  text-align: center;
+  font-family: "Times New Roman", Georgia, serif;
+  color: #6b4226;
+}
+
+/* Título */
+.search-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+/* Input */
+.input-searchGuest {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 18px;
+  border: 2px solid #d4bba4;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  color: #6b4226;
+}
+
+.input-searchGuest:focus {
+  border-color: #a67c52;
+  box-shadow: 0 0 6px rgba(166, 124, 82, 0.4);
+}
+
+/* Botón */
+.btn-searchGuest {
+  background: linear-gradient(135deg, #d4bba4, #a67c52);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-searchGuest:hover {
+  background: linear-gradient(135deg, #a67c52, #6b4226);
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(107, 66, 38, 0.3);
+}
+
+/* Mensajes de carga y error */
+.search-container p {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.search-container p:nth-of-type(1) { /* loading */
+  color: #8b5e3c;
+  font-style: italic;
+}
+
+.search-container p:nth-of-type(2) { /* error */
+  color: #b23a3a;
+  font-weight: bold;
+}

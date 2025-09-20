@@ -1,35 +1,94 @@
-.invitation-card{
-    border: 1px solid #e6e1db;
-    width: 350px;
-    height: auto;
-    border-radius: 10px;
-    background-color: #dcd5d0;
+.invitation-card {
+  width: 350px;
+  min-height: 500px;
+  background-color: #fdfaf6; /* Beige clarito */
+  border-radius: 180px 180px 20px 20px;
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.15);
+  text-align: center;
+  color: #6b4226;
+  font-family: "Times New Roman", Georgia, serif;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative; /* NECESARIO para las posiciones absolutas */
+  overflow: hidden;
 }
-.invitation-header{
-    display: flex;
 
-    img{
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        margin: 10px;
-    }
-    h1{
-        font-size: 34px;
-        margin: auto;
-    }
+/* Ositos en las esquinas */
+.teddy {
+  position: absolute;
+  width: 70px; /* ajusta al tamaño que quieras */
+  height: auto;
 }
-.guest-name{
-    text-align: center;
-    font-size: 30px;
+
+.teddy.top-left {
+  top: -10px;
+  left: -10px;
 }
-.invitation-message{
-    text-align: center;
-    font-size: 20px;
-    margin: 20px;
+
+.teddy.top-right {
+  top: -10px;
+  right: -10px;
 }
-.invitation-details{
-    text-align: center;
-    font-size: 18px;
-    margin: 20px;
+
+.teddy.bottom-left {
+  bottom: -10px;
+  left: -10px;
+}
+
+.teddy.bottom-right {
+  bottom: -10px;
+  right: -10px;
+}
+
+/* Encabezado con lazo y banner */
+.invitation-header {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.invitation-bow {
+  background-size: contain;
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.invitation-banner {
+  background: url("/imgs/banner.png") no-repeat center;
+  background-size: contain;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invitation-banner h2 {
+  font-size: 27px;
+  font-weight: bold;
+  color: #6b4226;
+  margin: 0;
+  z-index: 1;
+}
+
+.italic-text {
+  font-style: italic;
+}
+
+.guest-name {
+  font-size: 36px;
+  margin: 15px 0;
+}
+
+.invitation-details {
+  font-size: 28px;
+  margin: 6px 0;
+}
+
+.enlace {
+  color: #8b5e3c;
+  text-decoration: underline;
+  cursor: pointer;
 }
