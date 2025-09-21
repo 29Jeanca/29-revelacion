@@ -10,7 +10,8 @@ const SearchGuest = () => {
     const normalizeText = (text) => {
   return text
     .toLowerCase()
-    .normalize("NFD") 
+    .normalize("NFD")
+    .trim()
     .replace(/[\u0300-\u036f]/g, ""); 
 };
  const searchName = async () => {
